@@ -1,42 +1,44 @@
 # URL Status Checker
 
-This Python script checks the HTTP status of a list of URLs and saves the results in a CSV file. The script uses the `requests` library to perform the HTTP requests and the `concurrent.futures` library to handle multiple requests in parallel. The results are saved in a timestamped CSV file for future reference.
+This project is a Flask-based web application that allows you to upload a file containing URLs, checks the status of each URL, and generates a CSV file with the results. The results file is dynamically named based on the original file name and the current timestamp.
+
+## Features
+
+- Upload a file containing URLs.
+- Check the status of each URL.
+- Generate a CSV file with the status results.
+- Dynamically name the results file based on the original file name.
+- Styled web interface using Tailwind CSS with a dark theme.
 
 ## Requirements
 
 - Python 3.x
-- `requests` library
+- Flask
+- Requests
 
-## Installation
+## Setup Instructions
 
-1. **Install Python:**
-   - Download and install Python from the [official website](https://www.python.org/downloads/). Make sure to check the box that says "Add Python to PATH" during installation.
+1. **Clone the Repository**: 
+   ```sh
+   git clone git@github.com:Vic1696/url_checker.git
+   cd url-status-checker
 
-2. **Install Required Library:**
-   - Open a command prompt or terminal and run the following command to install the `requests` library:
-     ```sh
-     pip install requests
-     ```
+2. **Install Dependencies**:
+   ```sh
+   pip install flask requests
+
+3. **Run the Application**:
+   ```sh
+   python3 check_urls.py
+
+4. **Open the Web Interface**:
+   Open a web browser and go to http://127.0.0.1:5000.
 
 ## Usage
+- __Upload a File__: Use the web interface to upload a file containing URLs (one URL per line).
+- __Check Status__: Click the "Check Status" button to process the URLs.
+- __Download Results__: The application will generate a CSV file with the status of each URL. The file name will be based on the original file name and the current timestamp.
 
-1. **Prepare the URLs File:**
-   - Create a file named `urls.txt` in the same directory as the script. Add the URLs you want to check, one per line. For example:
-     ```
-     https://www.google.com
-     https://www.example.com
-     https://nonexistent.website
-     ```
-
-2. **Run the Script:**
-   - Save the script as `check_urls.py`:
-
-   - Open a command prompt or terminal, navigate to the directory where `check_urls.py` is saved, and run the script:
-     ```sh
-     python check_urls.py
-     ```
-
-3. **Check the Results:**
-   - The script will generate a CSV file with a name like `urls_status_20240623_101530.csv`, where the numbers represent the current date and time. This file will contain the URLs and their corresponding status codes.
-
-
+## Notes
+- This application is intended for development and testing purposes. For production deployment, use a production WSGI server.
+- Ensure that the uploaded file is properly formatted (one URL per line) for accurate results.
